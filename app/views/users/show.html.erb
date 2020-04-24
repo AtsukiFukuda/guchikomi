@@ -1,0 +1,41 @@
+<div class= "container">
+     <div class= "my-page">
+          <h2>MyPage</h2>
+          <% if @user.image_url.present? %>
+               <%= image_tag @user.image_url, :size => '150x150', class: 'img_fluid rounded-circle' %>
+          <% end %>
+          <p>・ニックネーム：<%= @user.name %></p>
+          <p>・e-mail：<%= @user.email %></p>
+          <p>・プロフィール</p>
+          <p><%= @user.profile %></p>
+          <p></p>
+          
+          <% if @user.id == current_user.id %>
+               <%= link_to "ユーザ情報を編集する", edit_user_registration_path, class: "btn btn-primary" %>
+          <% end %>
+          <br><br><br>
+     </div>
+          <h3>共感した投稿</h3>
+          <div class="posts-container">
+                    <% @user.liked_posts.each do |post| %>
+                         <div class="balloon4">
+                              <p><%= post.body %></p>
+                              <p>（投稿者：<%= post.user.name %>さん）</p>
+                         </div>
+                    <% end %>
+          </div>
+          <br>
+          <div class= "my-page">
+          <%= link_to "戻る", :back, class: "btn btn-primary" %>
+          </div>
+          <br><br><br>
+    
+</div>
+<div class=ESBI>
+     <p1>E</p1>
+     <p2>S</p2>
+     <p3>B</p3>
+     <p4>I</p4>
+</div>
+
+  

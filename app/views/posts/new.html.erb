@@ -1,0 +1,36 @@
+<div class= "container">
+<h2>投稿フォーム</h2>
+<%= form_for(@post, :url => { controller:'posts', action:'create'})do |f| %>
+   <%= f.label :カテゴリー %>
+   <br>
+   <%= f.text_field :category,size: 40 %>
+   <br>
+   <%= f.label :企業名 %>
+   <br>
+   <%= f.text_field :company_name,size: 40 %>
+   <br>
+   <%= f.label :勤務地 %>
+   <br>
+   <%= f.text_field :work_location,size: 20 %>
+   <br>
+   <%= f.label :年収 %>
+   <br>
+   <%= f.number_field :salary,size: 20 %>万円
+   <br>
+   <%= f.label :愚痴 %>
+   <br>
+   <%= f.text_area :body,size: 70 %>
+   <br><br>
+   <%= f.submit "投稿する", class: "btn btn-outline-success"%>
+   <br><br>
+   <%= link_to "戻る", :back, class: "btn btn-primary"%>
+<% end %><br><br><br>
+</div>
+
+<div class=ESBI>
+<p1>E</p1>
+<p2>S</p2>
+<p3>B</p3>
+<p4>I</p4>
+</div>
+

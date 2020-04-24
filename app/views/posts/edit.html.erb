@@ -1,0 +1,30 @@
+<div class= "container">
+<h2>投稿を編集</h2>
+<%= form_for @post do |f| %>
+  <%= f.label :カテゴリー %>
+    <%= f.text_field :category, :size => 20 %> 
+    <br>
+    <%= f.label :企業名 %>
+    <%= f.text_field :company_name, :size => 20 %> 
+    <br>
+    <%= f.label :勤務地 %>
+    <%= f.text_field :work_location, :size => 20 %> 
+    <br>
+    <%= f.label :年収 %>
+    <%= f.number_field :salary, :size => 100 %> 万円
+    <br>
+    <%= f.label :愚痴 %>
+    <%= f.text_field :body, :size => 100 %> 
+    <br>
+    <%= f.submit "編集する" %>
+    </br><br>
+    <%= link_to "投稿一覧に戻る", posts_path, class: "btn btn-primary" %>
+  <% end %>
+  <br><br><br>
+</div>
+  <div class=ESBI>
+<p1>E</p1>
+<p2>S</p2>
+<p3>B</p3>
+<p4>I</p4>
+</div>

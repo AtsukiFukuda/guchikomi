@@ -1,0 +1,143 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+html {
+    font: 100%/1.5 ‘Avenir Next’, ‘Hiragino Sans’, sans-serif;
+    line-height: 1.7;
+    letter-spacing: 1px;
+}
+  
+.container {
+    width: 100%;
+    margin: 60px auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    clear: both;
+    background-image: url(<%= asset_path('IMG_1723-1.JPG') %>)
+}
+
+.posts-container {
+    display: flex;
+    flex-direction: row; 
+    flex-wrap: wrap;
+    padding: 10px 0px 0px 30px;
+}
+
+.post{
+    margin: 7px;
+    padding: 5px;
+    width: 280px;
+    background: #fffcf4;
+    border-radius :8px;
+    box-shadow :0px 0px 5px silver;
+    padding: 0.5em 0.5em 0.5em 2em;
+}
+
+.my-page{
+    text-align: center;
+}
+
+.balloon4 {
+  position: relative;
+  margin: 2em 0 2em 40px;
+  padding: 15px;
+  background: #fff0c6;
+  border-radius: 30px;
+}
+
+.balloon4:before {  
+  content: "";
+  position: absolute;
+  left: -38px;
+  width: 13px;
+  height: 12px;
+  bottom: 0;
+  background: #fff0c6;
+  border-radius: 50%;
+}
+
+.balloon4:after {
+  content: "";
+  position: absolute;
+  left: -24px;
+  width: 20px;
+  height: 18px;
+  bottom: 3px;
+  background: #fff0c6;
+  border-radius: 50%;
+}
+
+.balloon4 p {
+  margin: 0; 
+  padding: 0;
+}
+
+.search{
+    text-align: center;
+}
+
+h1{
+    font-stretch: extra-expanded;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: rebeccapurple;
+    font-size: 50px;
+    margin-top: 0px;
+    margin-bottom: 2px;
+    padding: 10px;
+    color: white;
+    text-align: center;
+}
+
+h2{
+    color: white;
+    background-color: rebeccapurple;
+    margin-top: 0px;
+    padding: 10px 10px;
+}
+
+h3{
+    margin: 0px;
+    padding-bottom:0px; 
+    text-align: center;
+}
+
+h6{
+    background-color: rebeccapurple;
+    color: white;
+    margin: 0px;
+    padding: 5px 10px 5px;
+    text-align: center;
+}
+
+.ESBI{
+    font-size: 30px;
+    color: rebeccapurple;
+}
+p1{ 
+    position: fixed;  
+    left: 904px;  
+    bottom: 41px;
+    font-size: 50px;
+    color: white;
+    background-color: rebeccapurple;
+    padding: 0px 24px;
+}
+
+p2{ 
+    position: fixed;  
+    left: 965px;  
+    bottom: 0px;
+}
+
+p3{ 
+    position: fixed;  
+    left: 990px;  
+    bottom: 30px;
+}
+
+p4{ 
+    position: fixed;  
+    left: 997px;  
+    bottom: 0px;
+}
+

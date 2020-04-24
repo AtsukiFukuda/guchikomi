@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="text-center font-weight-bold pt-5">アカウント情報を変更する</h2>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <div class="field pt-3">
+          <%= f.label :名前 %><br />
+          <%= f.text_field :name, autofocus: true %>
+        </div>
+       <div class="field pt-3">
+          <%= f.label :プロフィール画像 %><br>
+          <%= f.file_field :image %>
+        </div>
+        <div class="field pt-3">
+          <%= f.label :メールアドレス %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+        <div class="field pt-3">
+          <%= f.label :プロフィール %><br />
+          <%= f.text_area :profile, autofocus: true %>
+        </div>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
+        <div class="field pt-3">
+          <%= f.label :変更後パスワード %> <i>(パスワードを変更しない場合は空欄)</i><br />
+          <%= f.password_field :password, autocomplete: "new-password" %>
+          <% if @minimum_password_length %>
+            <br />
+            <em>＊<%= @minimum_password_length %> 文字以上</em>
+          <% end %>
+        </div>
+        <div class="field pt-3">
+          <%= f.label :もう一度入力 %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div>
+        <div class="field pt-3">
+          <%= f.label :現在のパスワードを入力 %> <i>(アカウントを変更する場合現在のパスワードを入力してください)</i><br />
+          <%= f.password_field :current_password, autocomplete: "current-password" %>
+        </div>
+        <div class="actions pt-3">
+          <%= f.submit "変更する", class: "btn btn-primary" %>
+        </div>
+      <% end %><br><br>
+      <h3>アカウントを削除</h3>
+      <p>アカウントは削除されますがよろしいですか？ <%= button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "本当によろしいですか？" }, method: :delete, class: "btn btn-primary" %></p>
+      <%= link_to "戻る", :back, class: "btn btn-primary" %>
+    </div>
+  </div><br><br><br>
+</div>

@@ -1,0 +1,45 @@
+<div class="container">
+  <h1>グ チ コ ミ</h1>
+  <h6>#サラリーマンの愚痴に特化したクチコミサイト</h6>
+
+    <div class=ESBI>
+      <p1>E</p1>
+      <p2>S</p2>
+      <p3>B</p3>
+      <p4>I</p4>
+    </div>
+    
+    <br><br>
+  <h3>フリーワード</h3>
+  <div class= search>
+  <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
+    <%= text_field_tag :search %>
+    <%= submit_tag '検索する' %>
+   </div>
+
+ <% end %>
+<br><br>
+<h3>投稿一覧</h3>
+
+<div class="posts-container">
+  <% @posts.each do |t| %>
+    <div class="post">
+      カテゴリー：<%= t.category %>
+      <br>
+      企業名：<%= t.company_name %>
+      <br>
+      愚痴：<br>
+      <%= t.body %>
+      <br>
+      共感した人：<%= t.liked_users.count %>人
+      <br>
+      投稿者：<%= link_to(t.user.name, user_path(t.user.id), class: "link") %>さん
+      <br>
+      <br>
+      
+      <%= link_to "詳細へ", post_path(t.id) %>
+    </div>
+  <% end %>
+</div>
+<br><br><br>
+</div>

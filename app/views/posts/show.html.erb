@@ -1,0 +1,41 @@
+<div class= "container">
+<h2>投稿詳細</h2>
+  <div class="post">
+    <p>カテゴリー：<%= @post.category %></p>
+    <p>企業名：<%= @post.company_name %></p>
+    <p>勤務地：<%= @post.work_location %></p>
+    <p>年収：<%= @post.salary %>万円</p>
+    <p>愚痴：<%= @post.body %></p>
+    <p>投稿日時：<%= @post.created_at %></p>
+    <p>共感: 
+    <% if current_user.already_liked?(@post) %>
+      <%= link_to post_like_path(@post), method: :delete do %>
+        <span class= 'fa fa-thumbs-up like-btn-unlike'>
+        </span>
+      <% end %>
+    <% else %>
+      <%= link_to post_likes_path(@post), method: :post do %>
+        <span class= 'fa fa-thumbs-up like-btn'>
+        </span>
+      <% end %>
+    <% end %><%= @post.likes.count %>人</p>
+    <p>共感したユーザー</p>
+    <% @post.liked_users.each do |user| %>
+      <%= user.name %>
+    <% end %><br>
+    <% if @post.user_id == current_user.id %>
+      <%= link_to "編集する", edit_post_path %>
+      <%= link_to "削除する", film_path, method: :delete %>
+    <% end %>
+  </div><br>
+  <%= link_to "投稿一覧に戻る", posts_path, class: "btn btn-primary" %>
+  <br><br><br>
+</div>
+
+<div class=ESBI>
+  <p1>E</p1>
+  <p2>S</p2>
+  <p3>B</p3>
+  <p4>I</p4>
+</div>
+
