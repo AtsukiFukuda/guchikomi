@@ -25,7 +25,7 @@
     <% end %><br>
     <% if @post.user_id == current_user.id %>
       <%= link_to "編集する", edit_post_path %>
-      <%= link_to "削除する", film_path, method: :delete %>
+      <%= link_to "削除する", post_path, method: :delete %>
     <% end %>
   </div><br>
   <%= link_to "投稿一覧に戻る", posts_path, class: "btn btn-primary" %>
