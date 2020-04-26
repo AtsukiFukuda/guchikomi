@@ -19,7 +19,7 @@
                     <% @user.liked_posts.each do |post| %>
                          <div class="balloon4">
                               <p><%= post.body %></p>
-                              <p>（投稿者：<%= post.company.name %> <%= post.user.name %>さん）</p>
+                              <p>（投稿者：<%= post.company_name %> <%= post.user.name %>さん）</p>
                          </div>
                     <% end %>
           </div>
