@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 
     before_action :authenticate_user!
     
-    def index
+  def index
         #書き加える部分ここから
       if params[:search] == nil
         @posts= Post.all.order(created_at: "DESC")
@@ -18,17 +18,17 @@ class PostsController < ApplicationController
         
       end
       #ここまで
-    end
+  end
    
     
-    def new
+  def new
     #追加箇所
-  @post = Post.new
+    @post = Post.new
   #ここまで
-    end
+  end
 
     #追加箇所
- def create
+  def create
     @post = Post.new(post_params)
 
     @post.user_id = current_user.id
@@ -42,9 +42,9 @@ class PostsController < ApplicationController
       #もう一回投稿画面へ
       redirect_to action: "new"
     end
-   end
+  end
 
-   def show
+  def show
     @post = Post.find(params[:id])
     @like = Like.new
   end
@@ -70,7 +70,7 @@ class PostsController < ApplicationController
    private
    #セキュリティのため、許可した:bodyというデータだけ取ってくるようにする
    def post_params
-    params.require(:post).permit(:body, :category, :company_name, :work_location, :salary)
+    params.require(:post).permit(:body, :category, :company_name, :work_location, :salary, :overall)
    end
    
   #ここまで
