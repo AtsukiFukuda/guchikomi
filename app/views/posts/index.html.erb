@@ -1,24 +1,12 @@
 <div class="container">
-  <h1>グ チ コ ミ</h1>
-  <h6>#サラリーマンの愚痴に特化したクチコミサイト</h6>
-
     <div class=ESBI>
       <p1>E</p1>
       <p2>S</p2>
       <p3>B</p3>
       <p4>I</p4>
     </div>
-    
-    <br><br>
-  <h3>フリーワード</h3>
-  <div class= search>
-  <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
-    <%= text_field_tag :search %>
-    <%= submit_tag 'search' %>
-   </div>
-   <% end %>
-
    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+
    <ol class="carousel-indicators">
      <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
      <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
@@ -26,24 +14,48 @@
    </ol>
    <div class="carousel-inner">
      <div class="carousel-item active">
-       <img src="img/img1.jpg" class="d-block w-100" alt="...">
+       <img src="assets/image5.jpg" class="d-block w-100" alt="...">
        <div class="carousel-caption d-none d-md-block">
-         <h5>First slide label</h5>
-         <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+       <h3>グ　チ　コ　ミ</h3><br>
+       <h5>サラリーマンのための”グチコミ”サイト</h5><br>
+       <div class= search>
+       <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
+          <%= text_field_tag :search %>
+          <%= submit_tag 'search' %>
+       </div>
+       <% end %><br><br><br><br><br><br><br><br>
+         <h5>Do not overwork yourself.</h5>
+         <p>You'll never walk alone.</p>
        </div>
      </div>
      <div class="carousel-item">
-       <img src="img/img2.jpg" class="d-block w-100" alt="...">
+       <img src="assets/image6.jpg" class="d-block w-100" alt="...">
        <div class="carousel-caption d-none d-md-block">
-         <h5>Second slide label</h5>
-         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+       <h3>グ　チ　コ　ミ</h3><br>
+       <h5>サラリーマンのための”グチコミ”サイト</h5><br>
+       <div class= search>
+       <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
+          <%= text_field_tag :search %>
+          <%= submit_tag 'search' %>
+       </div>
+       <% end %><br><br><br><br><br><br><br><br>
+         <h5>Sometimes that's the case.</h5>
+         <p>Let's walk step by step. I'm by your side.</p>
        </div>
      </div>
      <div class="carousel-item">
-       <img src="img/img3.jpg" class="d-block w-100" alt="...">
+       <img src="assets/image4.jpeg" class="d-block w-100" alt="...">
        <div class="carousel-caption d-none d-md-block">
-         <h5>Third slide label</h5>
-         <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+       <h3>グ　チ　コ　ミ</h3><br>
+       <h5>サラリーマンのための”グチコミ”サイト</h5><br>
+       <div class= search>
+       <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
+          <%= text_field_tag :search %>
+          <%= submit_tag 'search' %>
+       </div>
+       <% end %><br><br><br><br><br><br><br><br>
+         <h5>Don't be patient.</h5>
+         <p>I'll ask if you have any complaints.</p>
        </div>
      </div>
    </div>
@@ -63,8 +75,6 @@
 <div class="posts-container">
   <% @posts.each do |t| %>
     <div class="post">
-      カテゴリー：<%= t.category %>
-      <br>
       企業名：<%= t.company_name %>
       <br>
       <% if t.overall.present? %>
@@ -74,16 +84,16 @@
           <span class="star-rating-back">★★★★★</span>
         </span>
       <% end %> 
-      <br>
-      愚痴：<br>
+      <hr>
+      <div class="title"><%= t.title %></div>
       <%= t.body %>
-      <br>
-      共感した人：<%= t.liked_users.count %>人
-      <br>
-      投稿者：<%= link_to(t.user.name, user_path(t.user.id), class: "link") %>さん
-      <br>
-      <br>
+      <br><br>
       
+      共感した人：<%= t.liked_users.count %>人, 
+      <% if t.user.present? %>
+      投稿者：<%= link_to(t.user.name, user_path(t.user.id), class: "link") %>さん
+      <% end %> 
+      <br>
       <%= link_to "詳細へ", post_path(t.id) %>
     </div>
   <% end %>

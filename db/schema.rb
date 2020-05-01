@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_29_104542) do
+ActiveRecord::Schema.define(version: 2020_04_30_154451) do
 
   create_table "companies", force: :cascade do |t|
     t.integer "overall"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2020_04_29_104542) do
     t.integer "salary"
     t.float "rate"
     t.integer "overall"
+    t.string "title"
   end
 
   create_table "rooms", force: :cascade do |t|

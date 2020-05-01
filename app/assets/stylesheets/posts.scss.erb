@@ -13,10 +13,11 @@ html {
     padding-left: 10px;
     padding-right: 10px;
     clear: both;
-    background-image: url(<%= asset_path('IMG_1723-1.JPG') %>)
+    background-image: url(<%= asset_path('image10.jpg') %>)
 }
 
 .posts-container {
+    justify-content: center;
     display: flex;
     flex-direction: row; 
     flex-wrap: wrap;
@@ -24,17 +25,27 @@ html {
 }
 
 .post{
-    margin: 7px;
-    padding: 5px;
-    width: 280px;
+    margin: 10px;
+    padding: 7px;
+    width: 800px;
     background: #fffcf4;
-    border-radius :8px;
-    box-shadow :0px 0px 5px silver;
-    padding: 0.5em 0.5em 0.5em 2em;
+    border-radius :2px;
+    box-shadow :0px 0px 25px silver;
+    padding: 0.5em 0.5em 0.5em 1.0em;
 }
 
 .my-page{
     text-align: center;
+}
+
+hr {
+   border-width: 1px 0px 0px 0px; /* 太さ */
+   border-style: solid; /* 線種 */
+   border-color: black;   /* 線色 */
+}
+
+.title{
+    font-weight:900;
 }
 
 .balloon4 {

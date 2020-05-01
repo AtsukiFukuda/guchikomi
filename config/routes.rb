@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   #ここまで
   root 'posts#index'
   resources :posts do 
-    resources :likes, only: [:create, :destroy]
+  resources :likes, only: [:create, :destroy]
   end
   resources :users, :only => [:index, :new, :create, :show, :edit, :update]
 

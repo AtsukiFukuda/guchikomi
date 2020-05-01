@@ -70,7 +70,7 @@ class PostsController < ApplicationController
    private
    #セキュリティのため、許可した:bodyというデータだけ取ってくるようにする
    def post_params
-    params.require(:post).permit(:body, :category, :company_name, :work_location, :salary, :overall)
+    params.require(:post).permit(:title, :body, :category, :company_name, :work_location, :salary, :overall)
    end
    
   #ここまで
