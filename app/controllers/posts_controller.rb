@@ -10,11 +10,10 @@ class PostsController < ApplicationController
         @posts= Post.all.order(created_at: "DESC")
       else
         #部分検索
-        @posts = Post.where("body LIKE ? ",'%' + params[:search] + '%').order(created_at: "DESC")
-        .or(Post.where("category LIKE ? ", "%" + params[:search] + "%")).order(created_at: "DESC")
-        .or(Post.where("company_name LIKE ? ", "%" + params[:search] + "%")).order(created_at: "DESC")
-        .or(Post.where("work_location LIKE ? ", "%" + params[:search] + "%")).order(created_at: "DESC")
-        .or(Post.where("salary LIKE ? ", "%" + params[:search] + "%")).order(created_at: "DESC")
+        @posts = Post.where("body LIKE ? ",'%' + params[:search] + '%')
+        .or(Post.where("company_name LIKE ? ", "%" + params[:search] + "%"))
+    
+
         
       end
       #ここまで
@@ -47,6 +46,8 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @like = Like.new
+    @cheer = Cheer.new
+    @forget = Forget.new
   end
 
   def edit

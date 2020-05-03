@@ -17,4 +17,16 @@ class User < ApplicationRecord
   def already_liked?(post)
     self.likes.exists?(post_id: post.id)
   end
+
+  has_many :cheers, dependent: :destroy
+  has_many :cheered_posts, through: :cheers, source: :post
+  def already_cheered?(post)
+    self.cheers.exists?(post_id: post.id)
+  end
+
+  has_many :forgets, dependent: :destroy
+  has_many :forgot_posts, through: :forgets, source: :post
+  def already_forgot?(post)
+    self.forgets.exists?(post_id: post.id)
+  end
 end

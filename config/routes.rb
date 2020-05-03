@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   root 'posts#index'
   resources :posts do 
   resources :likes, only: [:create, :destroy]
+  resources :cheers, only: [:create, :destroy]
+  resources :forgets, only: [:create, :destroy]
+  
   end
   resources :users, :only => [:index, :new, :create, :show, :edit, :update]
 

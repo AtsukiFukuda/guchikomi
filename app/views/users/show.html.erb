@@ -4,27 +4,55 @@
           <% if @user.image_url.present? %>
                <%= image_tag @user.image_url, :size => '150x150', class: 'img_fluid rounded-circle' %>
           <% end %>
-          <p>・ニックネーム：<%= @user.name %></p>
-          <p>・プロフィール</p>
+          <p class="pt-3">・ニックネーム：<%= @user.name %></p>
+          <p class="pt-3">・プロフィール</p>
           <p><%= @user.profile %></p>
           <p></p>
           
           <% if @user.id == current_user.id %>
                <%= link_to "ユーザ情報を編集する", edit_user_registration_path, class: "btn btn-primary" %>
           <% end %>
-          <br><br><br>
+          <br><br><br><br>
      </div>
-          <h3>共感した投稿</h3>
+          <h3 class="pt-3">"共感👍"した投稿</h3>
           <div class="posts-container">
                     <% @user.liked_posts.each do |post| %>
                          <div class="balloon4">
                               <p><%= post.body %></p>
+                              
                               <p>（投稿者：<%= post.company_name %> <%= post.user.name %>さん）</p>
+                              
                          </div>
                     <% end %>
           </div>
+          <br><br>
+          <h3 class="pt-3">"頑張って❤️"した投稿</h3>
+          <div class="posts-container">
+                    <% @user.cheered_posts.each do |post| %>
+                         <div class="balloon4">
+                              <p><%= post.body %></p>
+                              
+                              <p>（投稿者：<%= post.company_name %> <%= post.user.name %>さん）</p>
+                              
+                         </div>
+                    <% end %>
+          </div>
+          <br><br>
+          <h3 class="pt-3">"飲んで忘れよ🍻"した投稿</h3>
+          <div class="posts-container">
+                    <% @user.forgot_posts.each do |post| %>
+                         <div class="balloon4">
+                              <p><%= post.body %></p>
+                              
+                              <p>（投稿者：<%= post.company_name %> <%= post.user.name %>さん）</p>
+                              
+                         </div>
+                    <% end %>
+          </div>
+
           <br>
           <div class= "my-page">
+          <hr>
           <%= link_to "戻る", :back, class: "btn btn-primary" %>
           </div>
           <br><br><br>

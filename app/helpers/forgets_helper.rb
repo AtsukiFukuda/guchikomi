@@ -1,0 +1,2 @@
+module ForgetsHelper
+end

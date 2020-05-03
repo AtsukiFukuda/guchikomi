@@ -1,52 +1,56 @@
 <div class= "container">
 <h2>投稿フォーム</h2>
-<%= form_for(@post, :url => { controller:'posts', action:'create'})do |f| %>
-   <%= f.label :カテゴリー %>
-   <br>
-   <%= f.text_field :category,size: 40 %>
-   <br>
-   <%= f.label :企業名 %>
-   <br>
-   <%= f.text_field :company_name,size: 40 %>
-   <br>
-   <%= f.label :勤務地 %>
-   <br>
-   <%= f.text_field :work_location,size: 20 %>
-   <br>
-   <%= f.label :年収 %>
-   <br>
-   <%= f.number_field :salary,size: 20 %>万円
-   <br><br>
+   <div class "posts-container">
+   <%= form_for(@post, :url => { controller:'posts', action:'create'})do |f| %>
+      <div class="post">
+      <%= f.label :カテゴリー %>
+      <br>
+      <%= f.text_field :category,size: 40 %>
+      <br>
+      <%= f.label :企業名 %>
+      <br>
+      <%= f.text_field :company_name,size: 40 %>
+      <br>
+      <%= f.label :勤務地 %>
+      <br>
+      <%= f.text_field :work_location,size: 20 %>
+      <br>
+      <%= f.label :年収 %>
+      <br>
+      <%= f.number_field :salary,size: 20 %>万円
+      <br><br>
 
-   <%= f.label :企業への満足度 %>
-   <div class="post_form">
-    <%= f.radio_button :overall, 5 ,id: 'star1'%>
-    <label for="star1"><span class="text">最高</span>★</label>
+      <%= f.label :企業への満足度 %>
+      <div class="post_form">
+      <%= f.radio_button :overall, 5 ,id: 'star1'%>
+      <label for="star1"><span class="text">最高</span>★</label>
 
-    <%= f.radio_button :overall, 4 ,id: 'star2'%>
-    <label for="star2"><span class="text">良い</span>★</label>
+      <%= f.radio_button :overall, 4 ,id: 'star2'%>
+      <label for="star2"><span class="text">良い</span>★</label>
 
-    <%= f.radio_button :overall, 3 ,id: 'star3'%>
-    <label for="star3"><span class="text">普通</span>★</label>
+      <%= f.radio_button :overall, 3 ,id: 'star3'%>
+      <label for="star3"><span class="text">普通</span>★</label>
 
-    <%= f.radio_button :overall, 2 ,id: 'star4'%>
-    <label for="star4"><span class="text">悪い</span>★</label>
+      <%= f.radio_button :overall, 2 ,id: 'star4'%>
+      <label for="star4"><span class="text">悪い</span>★</label>
 
-    <%= f.radio_button :overall, 1 ,id: 'star5'%>
-    <label for="star5"><span class="text">最悪</span>★</label>
- 　　</div><br>
-   <%= f.label :愚痴を一言で %>
-   <br>
-   <%= f.text_field :title,size: 20 %>
-   <br>
-   <%= f.label :愚痴 %>
-   <br>
-   <%= f.text_area :body,size: 200 %>
-   <br><br>
-   <%= f.submit "投稿する", class: "btn btn-success"%>
-   <br><br>
-   <%= link_to "戻る", :back, class: "btn btn-primary"%>
-<% end %><br><br><br>
+      <%= f.radio_button :overall, 1 ,id: 'star5'%>
+      <label for="star5"><span class="text">最悪</span>★</label>
+   　　</div><br>
+      <%= f.label :愚痴を一言で %>
+      <br>
+      <%= f.text_field :title,size: 20 %>
+      <br>
+      <%= f.label :愚痴 %>
+      <br>
+      <%= f.text_area :body,size: 200 %>
+      </div>
+      <br>
+      <%= f.submit "投稿する", class: "btn btn-success"%>
+      <br><br>
+      <%= link_to "戻る", :back, class: "btn btn-primary"%>
+   <% end %>
+   </div><br><br><br>
 </div>
 
 <div class=ESBI>

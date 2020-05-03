@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_30_154451) do
+ActiveRecord::Schema.define(version: 2020_05_03_080910) do
+
+  create_table "cheers", force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_cheers_on_post_id"
+    t.index ["user_id"], name: "index_cheers_on_user_id"
+  end
 
   create_table "companies", force: :cascade do |t|
     t.integer "overall"
@@ -25,6 +34,15 @@ ActiveRecord::Schema.define(version: 2020_04_30_154451) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["room_id"], name: "index_entries_on_room_id"
     t.index ["user_id"], name: "index_entries_on_user_id"
+  end
+
+  create_table "forgets", force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_forgets_on_post_id"
+    t.index ["user_id"], name: "index_forgets_on_user_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -86,8 +104,12 @@ ActiveRecord::Schema.define(version: 2020_04_30_154451) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cheers", "posts"
+  add_foreign_key "cheers", "users"
   add_foreign_key "entries", "rooms"
   add_foreign_key "entries", "users"
+  add_foreign_key "forgets", "posts"
+  add_foreign_key "forgets", "users"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "messages", "rooms"
