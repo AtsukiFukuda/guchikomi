@@ -7,9 +7,10 @@
     <br><br>
       <div class= "t">グ チ コ ミ<br>
        <h5>サラリーマンのための"愚痴"コミサイト</h5>
+       <h5>日頃の愚痴を書き込もう</h5>
       </div>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="field pt-3"><br>
+        <div class="field pt-3">
           <%= f.label :email %><br/>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-md-12 form-control" %>
         </div>

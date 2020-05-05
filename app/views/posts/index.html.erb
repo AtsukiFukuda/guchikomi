@@ -75,14 +75,14 @@
     <div class="clearfix">
     <% if t.user.present? %>
     <% if t.user.image_url.present? %>
-       <%= image_tag t.user.image_url, :size => '75x75', class: 'img_fluid rounded-circle float-md-left mr-md-4' %>
+       <%= image_tag t.user.image_url, :size => '80x80', class: 'img_fluid rounded-circle float-md-left mr-md-4' %>
     <% end %>
     <% end %>
-      <p class="mt-4 mt-md-0">
+      <p class="mt-5 mt-md-0 pt-1">
       企業名：<%= t.company_name %>
       </p>
       <% if t.overall.present? %>
-      <p class="mt-4 mt-md-0">企業への満足度
+      <p class="mt-5 mt-md-0 pt-0">企業への満足度
         <span class="star-rating">
           <span class="star-rating-front" style="width: <%= getPercent(t.overall) %>%;">★★★★★</span>
           <span class="star-rating-back">★★★★★</span>

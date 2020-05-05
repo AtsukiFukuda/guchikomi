@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container2">
   <div class="row">
     <div class="col-md-12">
-      <h2 class="text-center font-weight-bold pt-5">アカウント情報を変更する</h2>
+      <h2 class="text-center">アカウント情報を変更する</h2>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
         <div class="field pt-3">
@@ -43,10 +43,10 @@
           <%= f.submit "更新", class: "btn btn-info" %>
         </div>
       <% end %><br><br>
-      <h3>アカウントを削除</h3>
+      <h3 class="pt-3">アカウントを削除</h3>
       <p>アカウントは削除されますがよろしいですか？ <%= button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "本当によろしいですか？" }, method: :delete, class: "btn btn-warning" %></p>
       <hr>
       <%= link_to "戻る", :back, class: "btn btn-primary" %>
     </div>
-  </div><br><br><br>
+  </div><br><br>
 </div>

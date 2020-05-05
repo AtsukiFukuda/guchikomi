@@ -1,6 +1,6 @@
 <div class= "container">
 <h2>投稿詳細</h2>
-  <div class="post">
+  <div class="post2 pt-3">
     <p>~<%= @post.user.name %>さんの投稿~</p>
     <p>企業名：<%= @post.company_name %> (<%= @post.category %>)</p>
     <p>勤務地：<%= @post.work_location %></p>
@@ -65,9 +65,9 @@
       <%= link_to "編集する", edit_post_path %>
       <%= link_to "削除する", post_path(@post.id), method: :delete %>
     <% end %>
-  </div><br>
-  &emsp;<%= link_to "投稿一覧に戻る", posts_path, class: "btn btn-primary" %>
-  <br><br><br>
+  </div>
+  &emsp;&emsp;<%= link_to "投稿一覧に戻る", posts_path, class: "btn btn-primary" %>
+  <br><br>
 </div>
 
 <div class=ESBI>
