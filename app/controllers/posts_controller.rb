@@ -12,6 +12,8 @@ class PostsController < ApplicationController
         #部分検索
         @posts = Post.where("body LIKE ? ",'%' + params[:search] + '%')
         .or(Post.where("company_name LIKE ? ", "%" + params[:search] + "%"))
+        .or(Post.where("category LIKE ? ", "%" + params[:search] + "%"))
+        .or(Post.where("title LIKE ? ", "%" + params[:search] + "%"))
     
 
         

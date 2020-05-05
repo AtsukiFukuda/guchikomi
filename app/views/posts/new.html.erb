@@ -1,8 +1,8 @@
 <div class= "container">
-<h2>投稿フォーム</h2>
+<h2 class="pt-2">投稿フォーム</h2>
    <div class "posts-container">
    <%= form_for(@post, :url => { controller:'posts', action:'create'})do |f| %>
-      <div class="post">
+      <div class="post pt-3">
       <%= f.label :カテゴリー %>
       <br>
       <%= f.text_field :category,size: 40 %>
@@ -46,11 +46,11 @@
       <%= f.text_area :body,size: 200 %>
       </div>
       <br>
-      <%= f.submit "投稿する", class: "btn btn-success"%>
+      &emsp;<%= f.submit "投稿する", class: "btn btn-success"%>
       <br><br>
-      <%= link_to "戻る", :back, class: "btn btn-primary"%>
+      &emsp;<%= link_to "戻る", posts_path, class: "btn btn-primary"%>
    <% end %>
-   </div><br><br><br>
+   </div><br><br>
 </div>
 
 <div class=ESBI>

@@ -19,9 +19,9 @@
                     <% @user.liked_posts.each do |post| %>
                          <div class="balloon4">
                               <p><%= post.body %></p>
-                              
+                              <% if post.user.present? %>
                               <p>（投稿者：<%= post.company_name %> <%= post.user.name %>さん）</p>
-                              
+                              <% end %>
                          </div>
                     <% end %>
           </div>
@@ -31,9 +31,9 @@
                     <% @user.cheered_posts.each do |post| %>
                          <div class="balloon4">
                               <p><%= post.body %></p>
-                              
+                              <% if post.user.present? %>
                               <p>（投稿者：<%= post.company_name %> <%= post.user.name %>さん）</p>
-                              
+                              <% end %>
                          </div>
                     <% end %>
           </div>
@@ -43,9 +43,9 @@
                     <% @user.forgot_posts.each do |post| %>
                          <div class="balloon4">
                               <p><%= post.body %></p>
-                              
+                              <% if post.user.present? %>
                               <p>（投稿者：<%= post.company_name %> <%= post.user.name %>さん）</p>
-                              
+                              <% end %>
                          </div>
                     <% end %>
           </div>
