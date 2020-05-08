@@ -67,7 +67,7 @@
       <p4>I</p4>
     </div>
     <br>
-<h3 class="pt-3">投稿一覧</h3>
+<h3 class="pt-3">愚痴一覧</h3>
 
 <div class="posts-container">
   <% @posts.each do |t| %>
@@ -96,8 +96,8 @@
       <hr>
       <div class="title"><%= t.title %></div>
       <%= t.body %>
-      <br><br>
-      
+      <br><br><br>
+      <hr>
       共感👍: <%= t.liked_users.count %> ,　頑張って❤️: <%= t.cheered_users.count %> ,　飲んで忘れよ🍻: <%= t.forgot_users.count %>
       <br>
       <br>

@@ -1,7 +1,9 @@
 <div class= "container">
 <h2>投稿詳細</h2>
   <div class="post2 pt-3">
+    <% if @post.user.present? %>
     <p>~<%= @post.user.name %>さんの投稿~</p>
+    <% end %>
     <p>企業名：<%= @post.company_name %> (<%= @post.category %>)</p>
     <p>勤務地：<%= @post.work_location %></p>
     <p>年収：<%= @post.salary %>万円</p>
