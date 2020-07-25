@@ -99,7 +99,11 @@
       <br><br><br>
       <hr>
       共感👍: <%= t.liked_users.count %> ,　頑張って❤️: <%= t.cheered_users.count %> ,　飲んで忘れよ🍻: <%= t.forgot_users.count %>
-      <br>
+      <% if current_user.already_liked?(t) %>
+      <%= button_to 'いいねを取り消す', post_like_path(id: t.id, post_id: t.id), method: :delete %>
+    　<% else %>
+      <%= button_to 'いいね', post_likes_path(id: t.id, post_id: t.id) %>
+    　<% end %>
       <br>
       <%= link_to "詳細へ", post_path(t.id) %>
     </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_03_080910) do
+ActiveRecord::Schema.define(version: 2020_06_27_130236) do
 
   create_table "cheers", force: :cascade do |t|
     t.integer "post_id", null: false
@@ -21,10 +21,14 @@ ActiveRecord::Schema.define(version: 2020_05_03_080910) do
     t.index ["user_id"], name: "index_cheers_on_user_id"
   end
 
-  create_table "companies", force: :cascade do |t|
-    t.integer "overall"
+  create_table "comments", force: :cascade do |t|
+    t.string "comment"
+    t.integer "user_id", null: false
+    t.integer "tweet_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["tweet_id"], name: "index_comments_on_tweet_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "entries", force: :cascade do |t|
@@ -84,6 +88,16 @@ ActiveRecord::Schema.define(version: 2020_05_03_080910) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "talks", force: :cascade do |t|
+    t.string "talk"
+    t.integer "user_id", null: false
+    t.integer "post_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_talks_on_post_id"
+    t.index ["user_id"], name: "index_talks_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.text "profile"
@@ -106,6 +120,8 @@ ActiveRecord::Schema.define(version: 2020_05_03_080910) do
 
   add_foreign_key "cheers", "posts"
   add_foreign_key "cheers", "users"
+  add_foreign_key "comments", "tweets"
+  add_foreign_key "comments", "users"
   add_foreign_key "entries", "rooms"
   add_foreign_key "entries", "users"
   add_foreign_key "forgets", "posts"
@@ -114,4 +130,6 @@ ActiveRecord::Schema.define(version: 2020_05_03_080910) do
   add_foreign_key "likes", "users"
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "talks", "posts"
+  add_foreign_key "talks", "users"
 end

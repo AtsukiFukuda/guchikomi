@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -10,10 +11,15 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :trackable, :validatable
+  has_many :talks, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :post
+  def already_commented?(post)
+    self.comments.exists?(post_id: post.id)
+  end
+
   def already_liked?(post)
     self.likes.exists?(post_id: post.id)
   end

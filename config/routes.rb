@@ -12,10 +12,11 @@ Rails.application.routes.draw do
   resources :likes, only: [:create, :destroy]
   resources :cheers, only: [:create, :destroy]
   resources :forgets, only: [:create, :destroy]
-  
+  resources :talks, only: [:create]
+  resources :comments, only: [:create]
   end
-  resources :users, :only => [:index, :new, :create, :show, :edit, :update]
-
+  resources :users, :only => [:index, :new, :create, :show, :edit, :update, :start]
+  resources :groups, only: [:new, :create, :edit, :update]
   resources :messages, :only => [:create]
   resources :rooms, :only => [:create, :show, :index]
 

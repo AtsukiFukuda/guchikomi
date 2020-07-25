@@ -50,6 +50,7 @@ class PostsController < ApplicationController
     @like = Like.new
     @cheer = Cheer.new
     @forget = Forget.new
+  
   end
 
   def edit
