@@ -3,19 +3,16 @@
   <div class "posts-container">
   <%= form_for @post do |f| %>
     <div class="post">
-    <%= f.label :カテゴリー %>
+    <%= f.label :商品名 %>
       <%= f.text_field :category, :size => 20 %> 
       <br>
-      <%= f.label :企業名 %>
+      <%= f.label :ブランド名 %>
       <%= f.text_field :company_name, :size => 20 %> 
       <br>
-      <%= f.label :勤務地 %>
-      <%= f.text_field :work_location, :size => 20 %> 
+      <%= f.label :価格 %>
+      <%= f.number_field :salary, :size => 100 %> 円
       <br>
-      <%= f.label :年収 %>
-      <%= f.number_field :salary, :size => 100 %> 万円
-      <br>
-      <%= f.label :企業への満足度 %>
+      <%= f.label :商品の満足度 %>
       <div class="post_form">
         <%= f.radio_button :overall, 1 ,id: 'star1'%>
         <label for="star1"><span class="text">最悪</span>★</label>
@@ -33,10 +30,10 @@
         <label for="star5"><span class="text">最高</span>★</label>
   　　</div>
       <br>
-      <%= f.label :愚痴を一言で %>
+      <%= f.label :使用した感想を一言で %>
       <%= f.text_field :title, :size => 20 %> 
       <br>
-      <%= f.label :愚痴 %><br>
+      <%= f.label :コメント %><br>
       <%= f.text_area :body, :size => 120 %> 
       </div><br>
       &emsp;<%= f.submit "更新", class: "btn btn-info" %>
@@ -47,8 +44,5 @@
   <br><br><br>
 </div>
   <div class=ESBI>
-<p1>E</p1>
-<p2>S</p2>
-<p3>B</p3>
-<p4>I</p4>
+<p1>P</p1>
 </div>

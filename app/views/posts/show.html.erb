@@ -4,9 +4,8 @@
     <% if @post.user.present? %>
     <p>~<%= @post.user.name %>さんの投稿~</p>
     <% end %>
-    <p>企業名：<%= @post.company_name %> (<%= @post.category %>)</p>
-    <p>勤務地：<%= @post.work_location %></p>
-    <p>年収：<%= @post.salary %>万円</p>
+    <p>商品名：<%= @post.company_name %> (<%= @post.category %>)</p>
+    <p>価格：<%= @post.salary %>円</p>
     <p>満足度(5点満点)：<%= @post.overall %></p>
     <hr>
     <p><div class="title"><%= @post.title %></div></p>
@@ -14,7 +13,7 @@
 
     <p>投稿日時：<%= @post.created_at.strftime("%Y/%m/%d %H:%M")%></p>
     <hr>
-    <p>共感 
+    <p>いいね 
     <% if current_user.already_liked?(@post) %>
       <%= link_to post_like_path(@post), method: :delete do %>
         <span class= 'fa fa-thumbs-up like-btn-unlike'>
@@ -30,7 +29,7 @@
       <%= link_to(user.name, user_path(user.id), class: "link") %>さん
     <% end %>)
     <br><br>
-    <p>頑張って
+    <p>私も好きです
     <% if current_user.already_cheered?(@post) %>
       <%= link_to post_cheer_path(@post), method: :delete do %>
         <span class= 'fa fa-heart like-btn-unlike'>
@@ -47,22 +46,6 @@
       <%= link_to(user.name, user_path(user.id), class: "link") %>さん
     <% end %>)
     <br><br>
-    <p>飲んで忘れよ
-    <% if current_user.already_forgot?(@post) %>
-      <%= link_to post_forget_path(@post), method: :delete do %>
-        <span class= 'fa fa-beer like-btn-unlike'>
-        </span>
-      <% end %>
-    <% else %>
-      <%= link_to post_forgets_path(@post), method: :post do %>
-        <span class= 'fa fa-beer like-btn'>
-        </span>
-      <% end %>
-    <% end %><%= @post.forgets.count %>人</p>
-    
-    (<% @post.forgot_users.each do |user| %>
-      <%= link_to(user.name, user_path(user.id), class: "link") %>さん
-    <% end %>)
     <br>
     <% if @post.user_id == current_user.id %><br>
       <%= link_to "編集する", edit_post_path %>
@@ -74,9 +57,7 @@
 </div>
 
 <div class=ESBI>
-  <p1>E</p1>
-  <p2>S</p2>
-  <p3>B</p3>
-  <p4>I</p4>
+  <p1>P</p1>
+  
 </div>
 

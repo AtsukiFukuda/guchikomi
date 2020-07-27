@@ -20,36 +20,24 @@
                          <div class="balloon4">
                               <p><%= post.body %></p>
                               <% if post.user.present? %>
-                              <p>（投稿者：<%= post.company_name %> <%= post.user.name %>さん）</p>
+                              <p>（投稿者：<%= post.user.name %>さん）</p>
                               <% end %>
                          </div>
                     <% end %>
           </div>
           <br><br>
-          <h3 class="pt-3">"頑張って❤️"した投稿</h3>
+          <h3 class="pt-3">"私も好きです❤️"した投稿</h3>
           <div class="posts-container">
                     <% @user.cheered_posts.each do |post| %>
                          <div class="balloon4">
                               <p><%= post.body %></p>
                               <% if post.user.present? %>
-                              <p>（投稿者：<%= post.company_name %> <%= post.user.name %>さん）</p>
+                              <p>（投稿者：<%= post.user.name %>さん）</p>
                               <% end %>
                          </div>
                     <% end %>
           </div>
-          <br><br>
-          <h3 class="pt-3">"飲んで忘れよ🍻"した投稿</h3>
-          <div class="posts-container">
-                    <% @user.forgot_posts.each do |post| %>
-                         <div class="balloon4">
-                              <p><%= post.body %></p>
-                              <% if post.user.present? %>
-                              <p>（投稿者：<%= post.company_name %> <%= post.user.name %>さん）</p>
-                              <% end %>
-                         </div>
-                    <% end %>
-          </div>
-
+          <br>
           <br>
           <div class= "my-page">
           <hr>
@@ -59,10 +47,8 @@
     
 </div>
 <div class=ESBI>
-     <p1>E</p1>
-     <p2>S</p2>
-     <p3>B</p3>
-     <p4>I</p4>
+     <p1>P</p1>
+    
 </div>
 
   
