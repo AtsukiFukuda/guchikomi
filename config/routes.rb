@@ -13,9 +13,9 @@ Rails.application.routes.draw do
   resources :cheers, only: [:create, :destroy]
   resources :forgets, only: [:create, :destroy]
   resources :talks, only: [:create]
-  resources :comments, only: [:create]
+  resources :comments, only: [:create, :destroy]
   end
-  resources :users, :only => [:index, :new, :create, :show, :edit, :update, :start]
+  resources :users, :only => [:index, :new, :create, :show, :edit, :update]
   resources :groups, only: [:new, :create, :edit, :update]
   resources :messages, :only => [:create]
   resources :rooms, :only => [:create, :show, :index]
