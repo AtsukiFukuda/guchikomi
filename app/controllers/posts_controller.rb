@@ -3,44 +3,30 @@ class PostsController < ApplicationController
     before_action :authenticate_user!
     
   def index
-        #書き加える部分ここから
-      if params[:search] == nil
+    @like_ranks = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
+    @cheer_ranks = Post.find(Cheer.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
+    if params[:search] == nil
         @posts= Post.all.order(created_at: "DESC")
       elsif params[:search] == ''
         @posts= Post.all.order(created_at: "DESC")
       else
-        #部分検索
         @posts = Post.where("body LIKE ? ",'%' + params[:search] + '%')
         .or(Post.where("company_name LIKE ? ", "%" + params[:search] + "%"))
         .or(Post.where("category LIKE ? ", "%" + params[:search] + "%"))
-        .or(Post.where("title LIKE ? ", "%" + params[:search] + "%"))
-    
-
-        
+        .or(Post.where("title LIKE ? ", "%" + params[:search] + "%"))  
       end
-      #ここまで
   end
-   
-    
+     
   def new
-    #追加箇所
     @post = Post.new
-  #ここまで
   end
 
-    #追加箇所
   def create
     @post = Post.new(post_params)
-
     @post.user_id = current_user.id
-  
-    #新しい投稿の保存に成功した場合
     if @post.save
-      #index.html.erbにページが移る
       redirect_to action: "index"
-    #新しい投稿の保存に失敗した場合
     else
-      #もう一回投稿画面へ
       redirect_to action: "new"
     end
   end
@@ -50,7 +36,6 @@ class PostsController < ApplicationController
     @like = Like.new
     @cheer = Cheer.new
     @forget = Forget.new
-  
   end
 
   def edit
@@ -72,10 +57,8 @@ class PostsController < ApplicationController
   end
   
    private
-   #セキュリティのため、許可した:bodyというデータだけ取ってくるようにする
    def post_params
     params.require(:post).permit(:title, :body, :category, :company_name, :work_location, :salary, :overall)
    end
    
-  #ここまで
 end

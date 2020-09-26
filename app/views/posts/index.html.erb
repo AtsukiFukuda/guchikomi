@@ -1,117 +1,155 @@
-
-
-   <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-   <ol class="carousel-indicators">
-     <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-     <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-     <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-   </ol>
-   <div class="carousel-inner">
-     <div class="carousel-item active">
-       <img src="assets/photo1.jpg" class="d-block w-100" alt="...">
-       <div class="carousel-caption d-none d-md-block">
-       <div class="g">The scent is yours.</div>
-       <div class="s">You can be as it is.</div>
-         <br>
-       <div class= search>
-       <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
-          <%= text_field_tag :search %>
-          <%= submit_tag 'search' %>
-       </div>
-       <% end %><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-       </div>
-     </div>
-     <div class="carousel-item">
-       <img src="assets/photo5.jpg" class="d-block w-100" alt="...">
-       <div class="carousel-caption d-none d-md-block">
-       <div class="g">Fashionable scent makes you happy.</div>
-       <div class="s">Spread your scent to the world.</div>
-        
-       <br>
-       <div class= search>
-       <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
-          <%= text_field_tag :search %>
-          <%= submit_tag 'search' %>
-       </div>
-       <% end %><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-       </div>
-     </div>
-     <div class="carousel-item">
-       <img src="assets/photo6.jpg" class="d-block w-100" alt="...">
-       <div class="carousel-caption d-none d-md-block">
-       <div class="g">The scent is warm.</div>
-         <div class="s">Let's communicate with warmth.</div>
-         <br>
-       <div class= search>
-       <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
-          <%= text_field_tag :search %>
-          <%= submit_tag 'search' %>
-       </div>
-       <% end %><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-       </div>
-     </div>
-   </div>
-   <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-     <span class="sr-only">Previous</span>
-   </a>
-   <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-     <span class="sr-only">Next</span>
-   </a>
-  </div>
-<div class="container">
-    <div class=ESBI>
-      <p1>P</p1>
-    </div>
-    <br>
-<h3 class="pt-3">投稿一覧</h3>
-
-<div class="posts-container">
-  <% @posts.each do |t| %>
-    <div class="post">
-    <div class="clearfix">
-    <% if t.user.present? %>
-    <% if t.user.image_url.present? %>
-       <%= image_tag t.user.image_url, :size => '80x80', class: 'img_fluid rounded-circle float-md-left mr-md-4' %>
-    <% end %>
-    <% end %>
-      <p class="mt-5 mt-md-0 pt-1">
-      商品名：<%= t.company_name %>(<%= t.category %>)
-      </p>
-      <% if t.overall.present? %>
-      <p class="mt-5 mt-md-0 pt-0">商品の満足度
-        <span class="star-rating">
-          <span class="star-rating-front" style="width: <%= getPercent(t.overall) %>%;">★★★★★</span>
-          <span class="star-rating-back">★★★★★</span>
-        </span>
-      </p>
-      <% end %> 
-      <% if t.user.present? %>
-      <%= link_to(t.user.name, user_path(t.user.id), class: "link") %>さんの投稿
-      <% end %> 
+<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+<ol class="carousel-indicators">
+  <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+  <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+  <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+</ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="assets/image5.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+      <p2>Do not overwork yourself.</p2>
+      <br>
+      <p3>You'll never walk alone.</p3>
+    <br><br>
+      <div class= search>
+      <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
+        <%= text_field_tag :search %>
+        <%= submit_tag 'search' %>
       </div>
-      <hr>
-      <div class="title"><%= t.title %></div>
-      <%= t.body %>
-      <br><br><br>
-      <hr>
-      いいね👍: <%= t.liked_users.count %> ,　私も好きです❤️: <%= t.cheered_users.count %>
-      <br>
-      <% if current_user.already_liked?(t) %>
-      <%= button_to '👍を取り消す', post_like_path(id: t.id, post_id: t.id), method: :delete %>
-    　<% else %>
-      <%= button_to 'いいね', post_likes_path(id: t.id, post_id: t.id) %>
-    　<% end %>
-    <% if current_user.already_cheered?(t) %>
-      <%= button_to '❤️を取り消す', post_cheer_path(id: t.id, post_id: t.id), method: :delete %>
-    　<% else %>
-      <%= button_to '私も好きです', post_cheers_path(id: t.id, post_id: t.id) %>
-    　<% end %>
-      <br>
-      <%= link_to "詳細へ", post_path(t.id) %>
+      <% end %>
+      </div>
     </div>
-  <% end %>
+    <div class="carousel-item">
+      <img src="assets/image6.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+      <p2>Sometimes that's the case.</p2>
+      <br>
+      <p3>Let's walk step by step. I'm by your side.</p3>        
+      <br><br>
+      <div class= search>
+      <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
+        <%= text_field_tag :search %>
+        <%= submit_tag 'search' %>
+      </div>
+      <% end %>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="assets/image4.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+      <p2>Don't be patient.</p2>
+      <br>
+      <p3>I'll listen if you have any complaints.</p3>
+      <br><br>
+      <div class= search>
+      <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
+        <%= text_field_tag :search %>
+        <%= submit_tag 'search' %>
+      </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
 </div>
-<br><br><br>
+  <div class="container">
+    <h3 class="pt-3">投稿一覧</h3>
+    <br> 
+    <div class="box">
+      <div class="rank1">
+       <p2>いいね👍<br>ランキング</p2>
+       <hr>
+       <% @like_ranks.each do |post| %>
+        <li>
+        <% if post.user.present? %>
+          <% if post.user.image_url.present? %>
+            <%= image_tag post.image_url, size: "100x160" if post.image? %> 
+          <% end %>
+        <% end %>
+        <br>
+        <p>
+        <%= post.company_name %>(<%= post.category %>)<br>
+        <%= link_to "投稿の詳細へ", post_path(post.id) %>
+        </p>
+        </li>
+        <hr>
+       <% end %>
+       <br>
+      </div>
+      <div class="posts-container">
+        <% @posts.each do |t| %>
+        <div class="post">
+          <div class="clearfix">
+            <% if t.user.present? %>
+            <% if t.user.image_url.present? %>
+              <%= image_tag t.user.image_url, :size => '90x90', class: 'img_fluid rounded-circle float-md-left mr-md-4' %>
+            <% end %>
+            <% end %>
+            <p class="mt-5 mt-md-0 pt-1">
+            企業名：<%= t.company_name %>(<%= t.category %>)
+            </p>
+            <% if t.overall.present? %>
+            <p class="mt-5 mt-md-0 pt-0">仕事の満足度
+              <span class="star-rating">
+                <span class="star-rating-front" style="width: <%= getPercent(t.overall) %>%;">★★★★★</span>
+                <span class="star-rating-back">★★★★★</span>
+              </span>
+            </p>
+            <% end %> 
+            <% if t.user.present? %>
+              <%= link_to(t.user.name, user_path(t.user.id), class: "link") %>さんの投稿
+            <% end %> 
+            </div>
+            <hr>
+            <div class="title"><%= t.title %></div>
+            <%= t.body %>
+            <br><br>
+            <hr>
+            いいね👍: <%= t.liked_users.count %> ,　飲んで忘れよ❤️: <%= t.cheered_users.count %>
+            <br>
+            <% if current_user.already_liked?(t) %>
+            <%= button_to '👍を取り消す', post_like_path(id: t.id, post_id: t.id), method: :delete %>
+          　<% else %>
+            <%= button_to 'いいね', post_likes_path(id: t.id, post_id: t.id) %>
+          　<% end %>
+            <% if current_user.already_cheered?(t) %>
+            <%= button_to '❤️を取り消す', post_cheer_path(id: t.id, post_id: t.id), method: :delete %>
+          　<% else %>
+            <%= button_to '飲んで忘れよ', post_cheers_path(id: t.id, post_id: t.id) %>
+          　<% end %>
+            <br>
+            <%= link_to "詳細へ", post_path(t.id) %>
+          </div>
+        <% end %>
+      </div>
+      <div class="rank2">
+       <p2>飲んで忘れよ❤️<br>ランキング</p2>
+       <hr>
+       <% @cheer_ranks.each do |post| %>
+        <li>
+        <% if post.user.present? %>
+          <% if post.user.image_url.present? %>
+            <%= image_tag post.image_url, size: "100x160" if post.image? %> 
+          <% end %>
+        <% end %>
+        <br>
+        <p>
+        <%= post.company_name %>(<%= post.category %>)<br>
+        <%= link_to "投稿の詳細へ", post_path(post.id) %>
+        </p>
+        </li>
+        <hr>
+       <% end %>
+       <br>
+      </div>
+  <br><br><br>
+  </div>
 </div>

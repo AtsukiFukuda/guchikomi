@@ -16,30 +16,102 @@ html {
     height: 60px;
 }
 
-.t{
+.search{
+    padding-bottom: 350px;
+}
+
+.box{
+    display: flex;
+    flex-direction: row;
+}
+
+.rank1{
+    margin: 25px;
+    padding: 5px;
+    width: 400px; 
+    height: 100%;
+    background: #98c8e9;
+    border-radius :2px;
+    box-shadow :0px 0px 25px black;
+    counter-reset: my-counter;
+    list-style-type: none;
+}
+
+.rank2{
+    margin: 25px;
+    padding: 5px;
+    width: 400px; 
+    height: 100%;
+    background: pink;
+    border-radius :2px;
+    box-shadow :0px 0px 25px black;
+    counter-reset: my-counter;
+    list-style-type: none;
+}
+
+.rank1 li:before {
+    content: "第"counter(my-counter)"位" ;
+    counter-increment: my-counter;
+    padding:5px;
+    margin: 20px;
+    color: rgb(0, 0, 0);
+    border-radius :10px;
+    background: rgb(198, 209, 134);
+}
+
+.rank2 li:before {
+    content: "第"counter(my-counter)"位" ;
+    counter-increment: my-counter;
+    padding:5px;
+    margin: 20px;
+    color: rgb(0, 0, 0);
+    border-radius :10px;
+    background: rgb(198, 209, 134);
+}
+
+.guchi{
     font-size: 100px;
     color: #ffffff;
     font-family: 'Apple Chancery',sans-serif;; 
-    text-shadow:2px 2px 8px #000000
+    text-shadow:2px 2px 8px #000000;
+    font-weight:900;
+    padding-top: 200px;
+    padding-bottom: 300px;
 }
 
-.g{
+.title{
+    font-weight:900;
+}
+
+p1{ 
+    position: fixed;  
+    left: 85%;  
+    bottom: 7%;
+    font-size: 70px;
+    color: white;
+    background-color: purple;
+    padding: 0px 30px;
+    text-shadow:2px 2px 3px #000000;
+}
+
+p2{
     font-size: 25px;
     color: #ffffff;
     font-family:  sans-serif; 
-    text-shadow:2px 2px 3px #000000 
+    text-shadow:2px 2px 3px #000000; 
 }
 
-.s{
+p3{
     font-size: 15px;
     color: #ffffff;
     font-family:  sans-serif; 
-    text-shadow:2px 2px 3px #000000 
+    text-shadow:2px 2px 3px #000000 ;
 }
 
 .ca{
-    background-image: image-url('photo1.jpg');
-    background-size: contain;
+    background-image: image-url('image6.jpg');
+    background-size: cover;
+    height: 720px;
 }
 
 .top{
@@ -48,15 +120,15 @@ html {
     padding-left: 10px;
     padding-right: 10px;
     clear: both;
-    background-image: image-url('photo5.jpg');
-    background-size: contain;
+    background-image: image-url('image6.jpg');
+    background-size: cover;
 }
   
 .container {
     margin: 60px auto;
     clear: both;
-    background-image: image-url('photo3.jpg');
-    background-size: contain;
+    background-image: image-url('image16.jpg');
+    background-size: cover;
 }
 
 .posts-container {
@@ -70,7 +142,7 @@ html {
 .post{
     margin: 10px;
     padding: 7px;
-    width: 800px;
+    width: 580px;
     background: #fffcf4;
     border-radius :2px;
     box-shadow :0px 0px 25px black;
@@ -99,10 +171,6 @@ hr {
    border-width: 1px 0px 0px 0px; /* 太さ */
    border-style: solid; /* 線種 */
    border-color: black;   /* 線色 */
-}
-
-.title{
-    font-weight:900;
 }
 
 .balloon4 {
@@ -177,19 +245,5 @@ h6{
     text-align: center;
 }
 
-.ESBI{
-    font-size: 50px;
-    color: rebeccapurple;
-}
-p1{ 
-    position: fixed;  
-    left: 85%;  
-    bottom: 7%;
-    font-size: 70px;
-    color: white;
-    background-color: pink;
-    padding: 0px 34px;
-    text-shadow:2px 2px 3px #000000;
-}
 
 

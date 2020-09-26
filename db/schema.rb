@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_27_130236) do
+ActiveRecord::Schema.define(version: 2020_09_26_155338) do
 
   create_table "cheers", force: :cascade do |t|
     t.integer "post_id", null: false
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 2020_06_27_130236) do
     t.float "rate"
     t.integer "overall"
     t.string "title"
+    t.string "image"
   end
 
   create_table "rooms", force: :cascade do |t|

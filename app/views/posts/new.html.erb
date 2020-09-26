@@ -3,20 +3,20 @@
    <div class "posts-container">
    <%= form_for(@post, :url => { controller:'posts', action:'create'})do |f| %>
       <div class="post2 pt-3">
-      <%= f.label :ブランド名 %>
+      <%= f.label :職種 %>
       <br>
       <%= f.text_field :category,size: 40 %>
       <br>
-      <%= f.label :商品名 %>
+      <%= f.label :企業名 %>
       <br>
       <%= f.text_field :company_name,size: 40 %>
       <br>
-      <%= f.label :価格 %>
+      <%= f.label :年収 %>
       <br>
-      <%= f.number_field :salary,size: 20 %>円
+      <%= f.number_field :salary,size: 20 %>万円
       <br><br>
 
-      <%= f.label :商品の満足度 %>
+      <%= f.label :仕事の満足度 %>
       <div class="post_form">
       <%= f.radio_button :overall, 5 ,id: 'star1'%>
       <label for="star1"><span class="text">最高</span>★</label>
@@ -33,11 +33,11 @@
       <%= f.radio_button :overall, 1 ,id: 'star5'%>
       <label for="star5"><span class="text">最悪</span>★</label>
    　　</div><br>
-      <%= f.label :使用した感想を一言で %>
+      <%= f.label :愚痴を一言で %>
       <br>
       <%= f.text_field :title,size: 20 %>
       <br>
-      <%= f.label :コメント %>
+      <%= f.label :愚痴の詳細 %>
       <br>
       <%= f.text_area :body,size: 200 %><br>
       </div>
