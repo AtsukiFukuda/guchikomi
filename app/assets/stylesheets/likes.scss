@@ -12,7 +12,7 @@
 
 .post_form{
     display: flex;
-    flex-direction: row-reverse; /* 表示を反転 */
+    flex-direction: row-reverse; 
     justify-content: flex-end;
   }
 
@@ -24,7 +24,7 @@
     padding: 10px 10px 0;
     color: gray;
     cursor: pointer;
-    font-size: 30px; /*星の大きさを変更するときはここ*/
+    font-size: 30px; 
   }
   .post_form label .text{
     position: absolute;
@@ -32,7 +32,7 @@
     top: 0;
     right: 0;
     text-align: center;
-    font-size: 9px; /*星の上の説明書きの大きさを変更するときはここ*/
+    font-size: 9px; 
     color: gray;
   }
   .post_form label:hover,
@@ -42,7 +42,7 @@
   }
 
 
-/*　以下一覧ページの星用のCSS　*/
+/* 一覧ページの星用のCSS　*/
 
   .star-rating {
     position: relative;

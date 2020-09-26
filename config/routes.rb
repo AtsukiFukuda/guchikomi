@@ -2,11 +2,6 @@ Rails.application.routes.draw do
   
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-#追加箇所
-  #Tweetの投稿に関するページ
-  #投稿ページ表示
-  
-  #ここまで
   root 'posts#index'
   resources :posts do 
   resources :likes, only: [:create, :destroy]
